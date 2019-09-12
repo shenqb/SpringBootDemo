@@ -12,8 +12,8 @@ public class SysUser implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue
-    private Long userId;
-    @Column(nullable = false, unique = true)
+    private Long id;
+    @Column(nullable = false)
     private String userName;
     @Column(nullable = false)
     private String userSex;
@@ -26,12 +26,12 @@ public class SysUser implements Serializable{
         return serialVersionUID;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long userId) {
+        this.id = userId;
     }
 
     public String getUserName() {
@@ -63,6 +63,20 @@ public class SysUser implements Serializable{
     }
 
     public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public SysUser(String userName, String userSex, String passWord, String nickName) {
+        this.userName = userName;
+        this.userSex = userSex;
+        this.passWord = passWord;
+        this.nickName = nickName;
+    }
+
+    public SysUser() {
+        this.userName = userName;
+        this.userSex = userSex;
+        this.passWord = passWord;
         this.nickName = nickName;
     }
 }
