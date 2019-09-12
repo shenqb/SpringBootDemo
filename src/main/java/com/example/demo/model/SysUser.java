@@ -16,9 +16,11 @@ public class SysUser implements Serializable{
     @Column(nullable = false, unique = true)
     private String userName;
     @Column(nullable = false)
-    private String userType;
+    private String userSex;
     @Column(nullable = false)
     private String passWord;
+    @Column(nullable = false)
+    private String nickName;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -40,12 +42,12 @@ public class SysUser implements Serializable{
         this.userName = userName;
     }
 
-    public String getUserType() {
-        return userType;
+    public String getUserSex() {
+        return userSex;
     }
 
-    public void setUserType(String userType) {
-        this.userType = userType;
+    public void setUserSex(String userSex) {
+        this.userSex = userSex;
     }
 
     public String getPassWord() {
@@ -54,5 +56,13 @@ public class SysUser implements Serializable{
 
     public void setPassWord(String passWord) {
         this.passWord = passWord;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 }
