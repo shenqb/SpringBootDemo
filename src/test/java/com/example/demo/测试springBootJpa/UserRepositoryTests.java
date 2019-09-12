@@ -1,8 +1,7 @@
-package com.example.demo.测试hibernate;
+package com.example.demo.测试springBootJpa;
 
 import com.example.demo.model.SysUser;
 import com.example.demo.repository.UserRepository;
-import javafx.application.Application;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

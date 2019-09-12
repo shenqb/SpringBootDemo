@@ -1,4 +1,4 @@
-package com.example.demo.测试mybatis;
+package com.example.demo.测试Mybatis;
 
 import java.util.List;
 
