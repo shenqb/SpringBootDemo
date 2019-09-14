@@ -9,7 +9,7 @@ import java.util.Date;
 @Component
 public class HelloSender {
 
-    @Autowired
+    @Autowired(required = false)
     private AmqpTemplate rabbitTemplate;
 
     public void send() {
