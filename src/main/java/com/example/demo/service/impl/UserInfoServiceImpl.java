@@ -10,10 +10,10 @@ import javax.annotation.Resource;
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
     @Resource
-    private UserInfoMapper userInfoDao;
+    private UserInfoMapper userInfoMapper;
     @Override
     public UserInfo findByUsername(String username) {
         System.out.println("UserInfoServiceImpl.findByUsername()");
-        return userInfoDao.findByUsername(username);
+        return userInfoMapper.findByUsername(username);
     }
 }
