@@ -3,3 +3,4 @@ SpringBoot小应用，计划整合Mysql、Redis、Mybatis、Filter、SpringBoot 
 
 ###目前进度
 * 已整合Mysql、Redis、Mybatis、Filter、SpringBoot Jpa、RabbitMq、SchedulerTask、Spring Boot Devtools热部署
+* 测试整合Shiro RBAC中
