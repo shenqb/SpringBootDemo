@@ -1,16 +1,18 @@
 package com.example.demo.config;
 
+import com.example.demo.filter.MyFilter;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.servlet.ShiroFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Properties;
+import javax.servlet.Filter;
+import java.util.*;
 
 @Configuration
 public class ShiroConfig {
@@ -36,7 +38,26 @@ public class ShiroConfig {
         //未授权界面;
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+
+        //自定义过滤
+        //oauth2
+        Map<String, Filter> filters = new HashMap<>(16);
+        filters.put("authc", new MyFilter());
+        shiroFilterFactoryBean.setFilters(filters);
+
         return shiroFilterFactoryBean;
+    }
+
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean() {
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        ShiroFilter shiroFilter = new ShiroFilter();
+        registrationBean.setFilter(shiroFilter);
+        List<String> urlPatterns = new ArrayList<String>();
+        urlPatterns.add("/*");
+        registrationBean.setUrlPatterns(urlPatterns);
+        registrationBean.setOrder(1);//设置该过滤器的优先级，数字越小，优先级越高
+        return registrationBean;
     }
 
     @Bean

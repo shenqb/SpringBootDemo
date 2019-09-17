@@ -10,9 +10,9 @@ import java.util.Map;
 
 @Controller
 public class HomeController {
-    @RequestMapping({"/","/index"})
+    @RequestMapping({"/index"})
     public String index(){
-        return"view/index.html";
+        return"index.html";
     }
 
     @RequestMapping("/login")
