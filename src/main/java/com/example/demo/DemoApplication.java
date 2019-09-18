@@ -11,7 +11,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")
 @EnableScheduling
-@EnableAutoConfiguration
 @ComponentScan
 @EnableAdminServer
 public class DemoApplication {

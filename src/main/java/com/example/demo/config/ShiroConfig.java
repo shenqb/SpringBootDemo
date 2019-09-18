@@ -39,26 +39,19 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 
-        //自定义过滤
-        //oauth2
-        Map<String, Filter> filters = new HashMap<>(16);
-        filters.put("authc", new MyFilter());
-        shiroFilterFactoryBean.setFilters(filters);
-
         return shiroFilterFactoryBean;
     }
 
-    @Bean
+    /*@Bean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        ShiroFilter shiroFilter = new ShiroFilter();
         registrationBean.setFilter(shiroFilter);
         List<String> urlPatterns = new ArrayList<String>();
         urlPatterns.add("/*");
         registrationBean.setUrlPatterns(urlPatterns);
         registrationBean.setOrder(1);//设置该过滤器的优先级，数字越小，优先级越高
         return registrationBean;
-    }
+    }*/
 
     @Bean
     public MyShiroRealm myShiroRealm(){
