@@ -16,7 +16,7 @@ import java.util.*;
 
 @Configuration
 public class ShiroConfig {
-    @Bean
+    /*@Bean
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
         System.out.println("================ShiroConfiguration.shirFilter()=================");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
@@ -42,17 +42,6 @@ public class ShiroConfig {
         return shiroFilterFactoryBean;
     }
 
-    /*@Bean
-    public FilterRegistrationBean filterRegistrationBean() {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        registrationBean.setFilter(shiroFilter);
-        List<String> urlPatterns = new ArrayList<String>();
-        urlPatterns.add("/*");
-        registrationBean.setUrlPatterns(urlPatterns);
-        registrationBean.setOrder(1);//设置该过滤器的优先级，数字越小，优先级越高
-        return registrationBean;
-    }*/
-
     @Bean
     public MyShiroRealm myShiroRealm(){
         MyShiroRealm myShiroRealm = new MyShiroRealm();
@@ -65,15 +54,9 @@ public class ShiroConfig {
         DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
         securityManager.setRealm(myShiroRealm());
         return securityManager;
-    }
+    }*/
 
-    /**
-     *  开启shiro aop注解支持.
-     *  使用代理方式;所以需要开启代码支持;
-     * @param securityManager
-     * @return
-     */
-    @Bean
+    /*@Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager){
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
@@ -92,5 +75,5 @@ public class ShiroConfig {
         r.setExceptionAttribute("ex");     // Default is "exception"
         //r.setWarnLogCategory("example.MvcLogger");     // No default
         return r;
-    }
+    }*/
 }
